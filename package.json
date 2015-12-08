@@ -1,0 +1,30 @@
+{
+  "name": "lilinode",
+  "version": "0.0.1",
+  "description": "lili study node ",
+  "main": "node",
+  "dependencies": {
+    "express": "^4.13.3",
+    "mongoose": "^4.2.9",
+    "jade": "^1.11.0",
+    "underscore": "^1.8.3",
+    "moment": "^2.10.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuli-lovely/nodeMd.git"
+  },
+  "keywords": [
+    "node"
+  ],
+  "author": "1206457841@qq.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yuli-lovely/nodeMd/issues"
+  },
+  "homepage": "https://github.com/yuli-lovely/nodeMd#readme"
+}
