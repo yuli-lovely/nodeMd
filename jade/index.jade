@@ -1,0 +1,80 @@
+extends layout
+block content
+	h2 runtime
+	#runtime
+	script(src='node_modules/jade/runtime.js')
+	script(src='runtime.js')
+	script.
+		var runtimeNode=document.getElementById('runtime');
+		var runtimeHtml=template({isRuntime:true});
+		runtimeNode.innerHTML=runtimeHtml;
+	block desc
+		p immoc from index
+	h2 mixin
+	mixin lesson
+		p Yara jade study
+	+ lesson
+	mixin study(name,courses)
+		p #{name}
+		p #{courses.length}
+		ul
+			each couese in courses
+				li= couese
+	+ study('tom',['jade','node'])
+	mixin grourp(student)
+		h2 #{student.name}
+		+study(student.name,student.courses)
+	+grourp({name:'Tom',courses:['jade','node']})
+	mixin team(slogon)
+		h4 #{slogon}
+		if block
+			block
+		else
+			p no team
+	+team('ssss')
+		p Good Job
+	mixin attr(name)
+		p(class!=attributes.class) #{name}
+	+attr('attr')(class="magic")
+	H2 流程
+	h3 if elae 
+
+	- var isImmoc = true
+	- var lessons = ['jade','node']
+	if lessons
+		if lessons.length > 2
+			p 2 #{lessons.join(', ')}
+		else if lessons.length > 1
+			p 1 #{lessons.join(', ')}
+		else
+			p no lesson
+	else
+		p no lesson
+	h3 unless
+	unless !isImmoc
+		p #{lessons.length}
+	h3 case
+
+	h3 for each
+	- var immoc={course:'jade',level:'high'}
+	- for (var k in immoc)
+		p= immoc[k]
+	- each value,key in immoc
+		p #{key}:#{value}
+	- var coures=['node','jade','express']
+	each item in coures
+		p= item
+	mixin magic(name,...items)
+		ul(class=' #{name}')
+			each item in items
+				li= item
+	+magic('name','node','jade','...')
+	h2 转义
+	- var data="text"
+	- var htnlData='<script>alert("1");</script><span></script></span>'
+	p #{data}
+	p= data
+	p #{htnlData}
+	p !{htnlData}
+	p \!#{htnlData}	
+	input(value=newDate)
